@@ -1,0 +1,34 @@
+<!-- src/app/components/navbar/navbar.component.html -->
+<nav class="navbar">
+  <div class="navbar-brand">
+    <span class="brand-icon">🏥</span>
+    <span class="brand-text">MédiCare</span>
+  </div>
+
+  <div class="navbar-menu">
+    <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+      <span class="nav-icon">📊</span> Tableau de bord
+    </a>
+    <a routerLink="/patients" routerLinkActive="active" class="nav-link">
+      <span class="nav-icon">👥</span> Patients
+    </a>
+    <a routerLink="/rendezvous" routerLinkActive="active" class="nav-link">
+      <span class="nav-icon">📅</span> Rendez-vous
+    </a>
+    <a routerLink="/calendrier" routerLinkActive="active" class="nav-link">
+      <span class="nav-icon">🗓️</span> Calendrier
+    </a>
+  </div>
+
+  <div class="navbar-user">
+    <span class="user-info">
+      <span class="user-role badge-{{ authService.getRole() }}">
+        {{ authService.getRole() | titlecase }}
+      </span>
+      <strong>{{ utilisateur()?.prenom }} {{ utilisateur()?.nom }}</strong>
+    </span>
+    <button class="btn-logout" (click)="seDeconnecter()">
+      🚪 Déconnexion
+    </button>
+  </div>
+</nav>
